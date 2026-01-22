@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Finder - Discover Delicious Recipes</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🍳</span>
+                    <h1>Recipe Finder</h1>
+                </div>
+                <div class="user-info">
+                    <span class="welcome-text">Welcome, <span id="userName"></span>!</span>
+                    <button id="logoutBtn" class="btn btn-outline">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Search Section -->
+            <section class="search-section">
+                <div class="search-container">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        class="search-input" 
+                        placeholder="Search for recipes..."
+                    >
+                    <button id="searchBtn" class="btn btn-primary">Search</button>
+                    <button id="randomBtn" class="btn btn-secondary">
+                        <span>🎲</span> Random Recipe
+                    </button>
+                </div>
+            </section>
+
+            <!-- Category Selection -->
+            <section id="categorySection" class="category-section">
+                <h2 class="section-title">What are you craving?</h2>
+                <div class="category-grid">
+                    <div class="category-card dessert" data-category="Dessert">
+                        <div class="category-overlay"></div>
+                        <div class="category-content">
+                            <span class="category-icon">🍰</span>
+                            <h3>Dessert</h3>
+                            <p>Sweet treats and delightful desserts</p>
+                        </div>
+                    </div>
+                    <div class="category-card savory" data-category="Seafood">
+                        <div class="category-overlay"></div>
+                        <div class="category-content">
+                            <span class="category-icon">🍤</span>
+                            <h3>Savory</h3>
+                            <p>Delicious savory dishes and meals</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Loading Spinner -->
+            <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+                <div class="spinner"></div>
+                <p>Loading delicious recipes...</p>
+            </div>
+
+            <!-- Error Message -->
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+            <!-- Recipes Section -->
+            <section id="recipesSection" class="recipes-section" style="display: none;">
+                <div class="section-header">
+                    <h2 class="section-title" id="recipesTitle">Recipes</h2>
+                    <button id="backBtn" class="btn btn-text" style="display: none;">← Back to categories</button>
+                </div>
+                <div id="recipesGrid" class="recipes-grid"></div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Recipe Modal -->
+    <div id="recipeModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div id="recipeDetails"></div>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
